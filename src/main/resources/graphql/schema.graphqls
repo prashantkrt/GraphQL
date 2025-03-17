@@ -1,0 +1,15 @@
+type Product{
+    id: ID
+    name: String
+    category: String
+    price: Float
+    quantity: Int
+    description: String
+}
+
+type Query{
+    getAllProducts: [Product]
+    getProductById(id: ID!): Product
+    getProductsByCategory(category: String!): [Product]
+    getProductByPriceRange(minPrice: Float!, maxPrice: Float!): [Product]
+}

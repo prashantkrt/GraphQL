@@ -32,7 +32,7 @@ public class SpringBootGraphQlApplication {
     //Streams themselves are immutable – Once created, a stream cannot be modified (e.g., you cannot add/remove elements from an existing stream).
     //Stream operations like map() create new transformed streams – They do not modify the original elements but instead return new elements based on the transformation.
     //If objects inside the stream are mutable, you can modify them – But this does not change the structure of the stream itself.
-    @PostConstruct
+//    @PostConstruct
     public void initDB()
     {
         List<Product> products = Stream.of(
