@@ -58,3 +58,22 @@ type Mutation{
 #        description
 #    }
 #}
+
+#mutation AddProduct {
+#    addProduct(
+#        product: {
+#            name: "Duster"
+#            category: "Accessories"
+#            price: 120.0
+#            quantity: 2
+#            description: "White/Black boad duster"
+#        }
+#    ) {
+#        id
+#        name
+#        category
+#        price
+#        quantity
+#        description
+#    }
+#}
