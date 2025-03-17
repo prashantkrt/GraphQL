@@ -1,9 +1,11 @@
 package com.mylearning.springbootgraphql.controller;
 
+import com.mylearning.springbootgraphql.dto.ProductInput;
 import com.mylearning.springbootgraphql.entity.Product;
 import com.mylearning.springbootgraphql.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.graphql.data.method.annotation.Argument;
+import org.springframework.graphql.data.method.annotation.MutationMapping;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -34,5 +36,22 @@ public class ProductGraphQLController {
     @QueryMapping
     public List<Product> getProductByPriceRange(@Argument Double minPrice, @Argument Double maxPrice) {
         return productService.getProductByPriceRange(minPrice, maxPrice);
+    }
+
+    //for create Update Delete use @MutationMapping
+    @MutationMapping
+    public Product updateStock(@Argument Integer id, @Argument Integer quantity) {
+        return productService.updateStock(id, quantity);
+    }
+
+    @MutationMapping
+    public Product receiveNewShipment(@Argument Integer id, @Argument Integer quantity) {
+        return productService.receiveNewShipment(id, quantity);
+    }
+
+    // Mutation to add a product by passing a full object
+    @MutationMapping
+    public Product addProduct(@Argument("product") ProductInput productInput) {
+        return productService.createProduct(productInput);
     }
 }
